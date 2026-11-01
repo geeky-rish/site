@@ -33,7 +33,7 @@ jobs:
       - name: Build static site
         run: bun run build
         env:
-          NITRO_PRESET: github-pages
+          NITRO_PRESET: static
 
       - name: Configure Pages artifact and 404 fallback
         run: |
