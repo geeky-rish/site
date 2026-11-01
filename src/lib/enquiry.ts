@@ -1,5 +1,5 @@
 export const WHATSAPP_NUMBER = "918861606007";
-export const BUSINESS_EMAIL = "hello.rishikulkarni@gmail.com";
+export const BUSINESS_EMAIL = "rika-tech@proton.me";
 
 export type Enquiry = { name: string; business: string; service: string; message: string };
 

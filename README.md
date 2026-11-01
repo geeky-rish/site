@@ -99,6 +99,7 @@ Ensure you have one of the following package managers installed:
 
 - **Lead Developer & Owner**: Rishi ([@geeky-rish](https://github.com/geeky-rish))
 - **Organization**: RIKA TECH
+- **Contact**: [rika-tech@proton.me](mailto:rika-tech@proton.me)
 
 ---
 
