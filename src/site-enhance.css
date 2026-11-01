@@ -1,0 +1,60 @@
+/* Professional polish layered on top of the original site stylesheet */
+.topbar{position:sticky;top:0;transition:height .3s,background .3s,box-shadow .3s}
+.topbar.is-scrolled{height:68px;background:rgba(10,13,18,.94);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.site-shell{overflow:clip}
+.nav a{position:relative}
+.nav a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav a:not(.nav-cta):hover::after,.nav a.is-active::after{transform:scaleX(1)}
+.nav a.is-active{color:var(--text)}
+.hero h1{text-wrap:balance}
+
+/* Infinite ticker */
+.ticker-track{justify-content:flex-start;width:max-content;min-width:0;gap:0;animation:ticker 38s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:38px;padding-right:38px;white-space:nowrap}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* Floating hero cards */
+.float-card{animation:floaty 6s ease-in-out infinite}
+.card-bottom{animation-delay:-3s}
+.orbit-one{animation:spin-a 40s linear infinite}
+.orbit-two{animation:spin-b 55s linear infinite}
+@keyframes floaty{50%{transform:translateY(-10px)}}
+@keyframes spin-a{from{transform:rotate(-28deg)}to{transform:rotate(332deg)}}
+@keyframes spin-b{from{transform:rotate(48deg)}to{transform:rotate(-312deg)}}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease var(--reveal-delay,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--reveal-delay,0ms),border-color .25s}
+.reveal.is-visible{opacity:1;transform:none}
+.service-card.reveal.is-visible:hover{transform:translateY(-4px)}
+
+/* Card spotlight */
+.service-card::before,.audience-card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at 50% 0%,rgba(184,243,107,.08),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.service-card:hover::before,.audience-card:hover::before{opacity:1}
+
+/* Support card */
+.service-wide{grid-column:1/-1;min-height:0}
+.service-wide-body{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.uptime-illustration{border:1px solid rgba(114,225,208,.2);border-radius:6px;background:#0d151d;padding:16px 18px;display:grid;gap:12px}
+.uptime-row{display:flex;align-items:center;gap:10px;font-size:12px;color:#c1cbd4}
+.uptime-row em{margin-left:auto;font:8px var(--mono);letter-spacing:1px;color:var(--cyan);font-style:normal}
+.uptime-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2.4s ease-in-out infinite}
+
+/* Industries */
+.audience-section{padding-bottom:130px}
+.audience-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.audience-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:9px;padding:24px 22px;background:#0e141c;transition:border-color .25s}
+.audience-card:hover{border-color:rgba(184,243,107,.45)}
+.audience-card h3{font-size:17px;letter-spacing:-.4px;margin:28px 0 10px}
+.audience-card p{color:#9aa8b5;font-size:13px;line-height:1.7;margin:0}
+
+/* Form focus states */
+.contact-form input:focus-visible,.contact-form select:focus-visible,.contact-form textarea:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(184,243,107,.15)}
+.contact-form input:user-invalid,.contact-form textarea:user-invalid,.contact-form select:user-invalid{border-color:#ff7a7a}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+@media(max-width:1100px){.audience-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.service-wide-body{grid-template-columns:1fr;gap:20px}.audience-grid{grid-template-columns:repeat(2,1fr)}.nav a:not(.nav-cta)::after{display:none}}
+@media(max-width:900px){.nav{top:100%}}
+@media(max-width:640px){.audience-grid{grid-template-columns:1fr}.audience-section{padding-bottom:90px}.topbar.is-scrolled{height:64px}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.ticker-track,.float-card,.orbit,.uptime-dot{animation:none}}
